@@ -51,6 +51,11 @@ public class PlayerController : MonoBehaviour
         {
             chargeTime += Time.deltaTime;
             chargeTime = Mathf.Clamp(chargeTime, 0f, maxChargeTime); // 限制蓄力时间
+
+            if (powerUpVisual != null)
+            {
+                powerUpVisual.chargeTime = chargeTime; // 实时同步到可视化组件
+            }
         }
 
         // 松开空格跳跃
@@ -86,10 +91,10 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = Vector3.zero; // 清除当前速度
         rb.AddForce(jumpDirection.normalized * jumpForce, ForceMode.Impulse);
 
-        // 同步蓄力进度
+        // 重置蓄力条
         if (powerUpVisual != null)
         {
-            powerUpVisual.chargeTime = chargeTime; // 更新蓄力时间
+            powerUpVisual.ResetChargeBar(); // 重置蓄力条状态
         }
     }
 
