@@ -64,11 +64,13 @@
     <Compile Include="Assets\PowerUpVisual.cs" />
     <Compile Include="Assets\image.cs" />
     <Compile Include="Assets\PlatformManager.cs" />
+    <Compile Include="Assets\Player Squash Effect Manager.cs" />
     <Compile Include="Assets\score.cs" />
     <Compile Include="Assets\ChargeBarPositioner.cs" />
     <Compile Include="Assets\PlayerController.cs" />
     <Compile Include="Assets\Score_text_position.cs" />
     <Compile Include="Assets\CameraFollow.cs" />
+    <Compile Include="Assets\DontDestroyOnLoad.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
