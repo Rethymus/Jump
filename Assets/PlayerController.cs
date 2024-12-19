@@ -73,8 +73,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // 按下空格开始蓄力
+        // 检测空格键跳跃
         if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isCharging = true;
+            chargeTime = 0f;
+            isJumpSuccessful = false; // 重置跳跃成功标志
+        }
+
+        // 检测鼠标左键长按跳跃
+        if (Input.GetMouseButtonDown(0))  // 0 是鼠标左键
         {
             isCharging = true;
             chargeTime = 0f;
@@ -93,8 +101,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // 松开空格跳跃
-        if (Input.GetKeyUp(KeyCode.Space))
+        // 松开空格键或鼠标左键跳跃
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))  // 0 是鼠标左键
         {
             isCharging = false;
             Jump();
